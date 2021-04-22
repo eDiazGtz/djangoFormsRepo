@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container bg-light mt-2 mb-2">
+        
+        <div class="bg-light d-flex justify-content-between">
+        <h4 class="text-success">Welcome {{user.firstName}}!</h4>
+        <a href="{% url 'logout' %}" class="btn btn-outline-danger">Logout</a>
+        </div>
+        
+        <form action="/dragon/create" method="POST">
+            {% csrf_token %}
+            {{dragonForm.as_p}}
+            <input type="submit" value="Create A Dragon!">
+        </form>
+
+
+
+
+        {% if allDragons %}
+        <table class="table table-hover table-info">
+            <thead>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>COLOR</th>
+                <th>HAS MAGIC?</th>
+                <th>RIDER</th>    
+            </thead>
+            <tbody>
+                {% for dragon in allDragons %}
+                <tr>
+                    <td>{{dragon.id}}</td>
+                    <td>{{dragon.name}}</td>
+                    <td>{{dragon.color}}</td>
+                    <td>{{dragon.hasMagic}}</td>
+                    <td>{{dragon.rider.firstName}} {{dragon.rider.lastName}}</td>
+                </tr>                
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+        
+    </div>
+</body>
+</html>

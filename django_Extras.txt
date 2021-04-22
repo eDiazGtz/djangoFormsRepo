@@ -1,0 +1,24 @@
+    Week 7 Tuesday!
+            -Housekeeping 
+
+            -Creating A Django Form
+                -forms.py
+                -fields
+            -Adding form to templates
+                -views.py
+                -context
+                -templates {{form}}
+            -Model Form
+                -class Meta
+                -.is_valid()
+                -.save()
+            -CSS
+                -widgets
+                -overriding fields in forms.py
+                -divs with CSS
+            -Different Html Input Types
+                -COLORS
+                -Tuples
+                -Django Documentation
+
+        -Last Day to Retake Exam 04/28
